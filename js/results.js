@@ -14,6 +14,12 @@
         } catch (e) { /* sin sessionStorage: se envía igualmente */ }
 
         var datos = { _formulario: "Momentum Derma", Aciertos: score + "/" + total };
+
+        /* Ciudad y farmacia, escritas en las dos primeras pantallas */
+        try {
+            datos.ciudad = (sessionStorage.getItem("ciudad") || "").trim();
+            datos.farmacia = (sessionStorage.getItem("farmacia") || "").trim();
+        } catch (e) { datos.ciudad = ""; datos.farmacia = ""; }
         var respondidas = 0;
 
         blocks.forEach(function (block) {
